@@ -32,13 +32,23 @@ st.set_page_config(
 )
 
 # Resolve GOOGLE_API_KEY from HF Secrets OR local .env file
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY") or st.secrets.get("GOOGLE_API_KEY", "")
+#GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY") or st.secrets.get("GOOGLE_API_KEY", "")
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
+if not GOOGLE_API_KEY:
+    try:
+        GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
+    except Exception:
+        GOOGLE_API_KEY = ""
+
+# Ensure LangChain can see the key
 if GOOGLE_API_KEY:
-    os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY  # ensure langchain picks it up
+    os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
 
-# Path to the SQLite database — must be committed alongside app.py in the repo
+# SQLite database path
 DB_PATH = os.path.join(os.path.dirname(__file__), "retail_store.db")
+
+# Temporary debugging
 st.write("Database path:", DB_PATH)
 st.write("Database exists:", os.path.exists(DB_PATH))
 
@@ -55,7 +65,7 @@ def get_langchain_db() -> SQLDatabase:
 def get_llm() -> ChatGoogleGenerativeAI:
     """Cached Gemini 2.5 Flash LLM instance."""
     return ChatGoogleGenerativeAI(
-        model="gemini-2.5-flash",
+        model="gemini-1.5-flash",
         temperature=0.1,
         google_api_key=GOOGLE_API_KEY,
     )
