@@ -8,7 +8,7 @@ sdk_version: 1.45.0
 app_file: app.py
 pinned: false
 license: mit
-short_description: Text-to-SQL AI agent with Gemini and charts
+short_description: Text-to-SQL AI agent with live charts
 ---
 
 # 📊 Visual Conversational AI Data Agent
@@ -19,7 +19,7 @@ A production-grade **Text-to-SQL AI Agent** built with **Google Gemini 2.5 Flash
 
 | Feature | Details |
 |---|---|
-| 🧠 **LLM Backend** | Google Gemini 2.5 Flash via `langchain-google-genai` |
+| 🧠 **LLM Backend** | Google Gemini 2.5 Flash (`gemini-2.5-flash`) via `langchain-google-genai` |
 | 🗄️ **Database** | SQLite (`retail_store.db`) — Products & Sales tables |
 | 💬 **Memory** | Multi-turn `st.session_state` chat history (last 6 turns in context) |
 | 🔁 **Self-Correction** | Automatic SQL repair loop on query failure |
@@ -54,5 +54,5 @@ GOOGLE_API_KEY = your_google_ai_studio_key_here
 ## 📦 Database Schema
 
 The `retail_store.db` includes:
-- **products** — `product_id`, `name`, `category`, `price`, `stock_quantity`
-- **sales** — `sale_id`, `product_id`, `quantity_sold`, `sale_date`, `total_amount`
+- **products** — `product_id`, `product_name`, `category`, `price`
+- **sales** — `sale_id`, `product_id`, `quantity`, `sale_date`

@@ -48,9 +48,8 @@ if GOOGLE_API_KEY:
 # SQLite database path
 DB_PATH = os.path.join(os.path.dirname(__file__), "retail_store.db")
 
-# Temporary debugging
-st.write("Database path:", DB_PATH)
-st.write("Database exists:", os.path.exists(DB_PATH))
+# NOTE: Actual DB columns — products(product_id, product_name, category, price)
+#                         — sales(sale_id, product_id, quantity, sale_date)
 
 # ──────────────────────────────────────────────────────────────────────────────
 # 2. CACHED RESOURCES — DB Connection & LLM
@@ -65,7 +64,7 @@ def get_langchain_db() -> SQLDatabase:
 def get_llm() -> ChatGoogleGenerativeAI:
     """Cached Gemini 2.5 Flash LLM instance."""
     return ChatGoogleGenerativeAI(
-        model="gemini-1.5-flash",
+        model="gemini-2.5-flash",
         temperature=0.1,
         google_api_key=GOOGLE_API_KEY,
     )
@@ -405,6 +404,6 @@ def main():
             entry["fig"] = fig
         st.session_state.chat_history.append(entry)
 
-
-if __name__ == "__main__":
-    main()
+# Streamlit executes this file as a module (not via __main__),
+# so main() MUST be called unconditionally at the top level.
+main()
