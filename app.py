@@ -39,6 +39,8 @@ if GOOGLE_API_KEY:
 
 # Path to the SQLite database — must be committed alongside app.py in the repo
 DB_PATH = os.path.join(os.path.dirname(__file__), "retail_store.db")
+st.write("Database path:", DB_PATH)
+st.write("Database exists:", os.path.exists(DB_PATH))
 
 # ──────────────────────────────────────────────────────────────────────────────
 # 2. CACHED RESOURCES — DB Connection & LLM
