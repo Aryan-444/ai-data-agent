@@ -1,5 +1,5 @@
 ---
-title: Visual Conversational AI Data Agent
+title: Conversational SQL Analytics & Visualization
 emoji: 📊
 colorFrom: indigo
 colorTo: purple
@@ -8,10 +8,10 @@ sdk_version: 1.45.0
 app_file: app.py
 pinned: false
 license: mit
-short_description: Text-to-SQL AI agent with live charts
+short_description: SQL analytics agent with live charts and dataset upload
 ---
 
-# 📊 Visual Conversational AI Data Agent
+# Conversational SQL Analytics & Visualization
 
 A production-grade **Text-to-SQL AI Agent** built with **Google Gemini 2.5 Flash**, LangChain, and Streamlit. Ask questions in plain English and get instant SQL-powered insights with live Plotly visualizations.
 

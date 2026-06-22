@@ -29,7 +29,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 load_dotenv()
 
 st.set_page_config(
-    page_title="AI Data Agent — Universal SQL Assistant",
+    page_title="Conversational SQL Analytics & Visualization",
     page_icon="📊",
     layout="wide",
 )
@@ -394,7 +394,7 @@ def main():
     render_sidebar()
 
     # ── Header ────────────────────────────────────────────────────────────────
-    st.title("📊 Visual Conversational AI Data Agent")
+    st.title("Conversational SQL Analytics & Visualization")
     st.markdown(
         "Ask questions in plain English about **any SQLite database or CSV dataset**. "
         "Upload your own data using the sidebar, or use the default retail store database."
