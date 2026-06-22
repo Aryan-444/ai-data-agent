@@ -8,7 +8,7 @@ sdk_version: 1.45.0
 app_file: app.py
 pinned: false
 license: mit
-short_description: Text-to-SQL agent powered by Gemini 2.5 Flash with live charts
+short_description: Text-to-SQL AI agent with Gemini and charts
 ---
 
 # 📊 Visual Conversational AI Data Agent
